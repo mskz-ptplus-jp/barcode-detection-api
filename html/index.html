@@ -1,11 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Barcode Detection API</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="./js/app.js"></script>
 </head>
 <body>
-  <h2>Hello from Container</h2>
+  <footer></footer>
+  <hr>
+  <button id="detect"  class="btn btn-lg btn-primary">Detect barcodes</button>
+  <div>
+    <img id="image" hidden crossorigin="anonymous" src="https://upload.wikimedia.org/wikipedia/en/f/f4/LiveBarcodeApp.jpg"> <br>
+    <canvas id="canvas"></canvas>
+  </div>
 </body>
 </html>
