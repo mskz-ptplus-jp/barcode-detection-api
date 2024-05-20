@@ -5,11 +5,11 @@
 ### Run
 
 ```
-docker run -it --rm -d -p 8080:80 --name web --mount type=bind,source=./html,target=/usr/share/nginx/html nginx:latest
+docker compose up -d
 ```
 
 ### Stop
 
 ```
-docker stop web
+docker compose down
 ```
