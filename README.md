@@ -1,5 +1,9 @@
 # Barcode Detection API
 
+https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API
+
+- [Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API#browser_compatibility)
+
 ## Docker
 
 ### Provisioning
