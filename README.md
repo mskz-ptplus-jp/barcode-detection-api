@@ -1,6 +1,6 @@
 # Barcode Detection API
 
-[demo](./src/)
+[demo](https://mskz-ptplus-jp.github.io/barcode-detection-api/src/)
 
 - [Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API#browser_compatibility)
 
