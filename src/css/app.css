@@ -7,12 +7,15 @@
 html,
 body {
     background-color: #000;
-    color: #fff;
     margin: 0;
     padding: 0;
     height: 100%;
     overflow: hidden;
     font-family: sans-serif;
+}
+
+footer {
+    color: aliceblue;
 }
 
 .reader {
