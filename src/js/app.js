@@ -1,9 +1,12 @@
 window.addEventListener('load', function() {
+  const stream = navigator.mediaDevices;
   const video = document.querySelector('.reader-video');
   let footer = document.getElementsByTagName('footer')[0];
   let detectButton = document.getElementById('detect');
   let stopButton = document.getElementById('stop');
+  let switchingCameraButton = document.getElementById('switching-camera');
   let timerId = null;
+  let isFacingMode = true;
 
   if (window.BarcodeDetector == undefined) {
     footer.innerHTML = "Barcode Detection not supported"
@@ -12,24 +15,24 @@ window.addEventListener('load', function() {
     console.error(footer.innerHTML);
     return;
   }
+  const detector = new window.BarcodeDetector({
+    formats: ['qr_code']  // 検出をQRコードのみに限定する
+  });
 
-  detectButton.addEventListener('click', () => {
-
-    (async () => {
-      const stream = await navigator.mediaDevices.getUserMedia({
+  const getStream = async () => {
+      return await stream.getUserMedia({
         video: {
-          facingMode: "user"
+          facingMode: isFacingMode ? "user" : "environment"
         }
       });
-      video.srcObject = stream;
+  };
+
+  detectButton.addEventListener('click', async () => {
+      video.srcObject = await getStream();
       await video.play();
 
-      // 検出をQRコードのみに限定する
-      const detector = new window.BarcodeDetector({
-        formats: ['qr_code']
-      });
-
       // QRコードの検出
+      clearInterval(timerId);
       timerId = setInterval( async () => {
         const detectionList = await detector.detect(video);
         for(const detected of detectionList) {
@@ -38,12 +41,18 @@ window.addEventListener('load', function() {
           footer.innerHTML = detected.rawValue;
         }
       }, 500);
-    })();
   });
 
   stopButton.addEventListener('click', () => {
     clearInterval(timerId);
+    footer.innerHTML = '';
     video.pause();
     video.srcObject = null;
+  });
+
+  switchingCameraButton.addEventListener('click', () => {
+    isFacingMode = !isFacingMode;
+    stopButton.click();
+    detectButton.click();
   });
 });
