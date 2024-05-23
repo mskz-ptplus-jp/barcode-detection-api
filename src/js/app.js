@@ -6,7 +6,9 @@ window.addEventListener('load', function() {
   let timerId = null;
 
   if (window.BarcodeDetector == undefined) {
-    footer.innerHTML = "Barcode Detection not supported";
+    footer.innerHTML = "Barcode Detection not supported"
+                      + `<br>`
+                      + `<a href="https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API#browser_compatibility" target="_blank">Browser compatibility</a>`;
     console.error(footer.innerHTML);
     return;
   }

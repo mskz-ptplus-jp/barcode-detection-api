@@ -16,7 +16,7 @@
     version: "2"
     authtoken: <YOUR_AUTH_TOKEN>
     tunnels:
-    nginx:
+      nginx:
         proto: http
         addr: nginx:80
         host_header: rewrite
