@@ -1,6 +1,6 @@
 # Barcode Detection API
 
-[demo](./src/)
+[demo](https://mskz-ptplus-jp.github.io/barcode-detection-api/src/)
 
 - [Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API#browser_compatibility)
 
@@ -16,7 +16,7 @@
     version: "2"
     authtoken: <YOUR_AUTH_TOKEN>
     tunnels:
-    nginx:
+      nginx:
         proto: http
         addr: nginx:80
         host_header: rewrite
